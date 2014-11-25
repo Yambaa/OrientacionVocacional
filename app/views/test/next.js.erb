@@ -1,7 +1,10 @@
+function html_encode(mystring){
+  return mystring.replace(/&amp;/g, "&").replace(/&gt;/g, ">").replace(/&lt;/g, "<").replace(/&quot;/g, '"');
+}
 <% if @answer.next_id %>
 $("#answers").html("<%= j (render 'answers') %>");
-$("#evaluation").val("<%= @evaluation %>")
+$("#evaluation").val(html_encode("<%= @evaluation %>"));
 <% else %>
 $("#answers").html("<%= j (render 'evaluator') %>");
-$("#evaluation").val("<%= @evaluation %>")
+$("#evaluation").val(html_encode("<%= @evaluation %>"));
 <% end %>
