@@ -3,17 +3,3 @@
   sobre ti creemos que esta carreta tiene todo para que tus sueños se hagan
   realidad.
 </h1>
-<ul>
-  <% @evaluation.each_pair do |k, v| %>
-    <% if v > 0 %>
-    <% degree = Degree.find(k) %>
-    <li>
-      <h3><%= degree.name %></h3>
-      <p>
-        <%= degree.description %>
-      </p>
-      <h4>Puntuacion: <%= v %></h4>
-    </li>
-    <% end %>
-  <% end %>
-</ul>

@@ -21,9 +21,9 @@
         <td><%= link_to answer.id, answer_path(answer) %></td>
         <td><%= answer.question_id %></td>
         <td><%= answer.text %></td>
-        <td><%= answer.degree_id %></td>
+        <td><%= nulo answer.degree_id %></td>
         <td><%= answer.score %></td>
-        <td><%= answer.next_id %></td>
+        <td><%= nulo answer.next_id %></td>
         <td><%=l answer.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),

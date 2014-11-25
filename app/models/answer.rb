@@ -1,5 +1,5 @@
 class Answer < ActiveRecord::Base
-  validates :text, :question_id, :degree_id, :score, presence: true
+  validates :text, :question_id, :score, presence: true
   validates :score, numericality: {greater_than: 0}
 
   belongs_to :question
