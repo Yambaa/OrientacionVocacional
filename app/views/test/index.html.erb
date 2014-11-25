@@ -1,0 +1,15 @@
+<h1>¿Quieres averiguar opciones tienes?</h1>
+<blockquote cite="http://">
+  Elige lo que mas te gusta de las opciones descritas abajo,
+  al finalizar te daremos un listado de las opciones de carrera que
+  creemos que te gustaran.
+  <small>Tannia Melissa Venegas Chavez</small>
+</blockquote>
+<%= text_field_tag :evaluation, @evaluation %>
+<div id="answers">
+  <%= render 'answers' %>
+</div>
+<button id="next" class="btn btn-primary">
+  Siguiente
+  <span class="fa fa-book"></span>
+</button>

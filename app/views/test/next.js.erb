@@ -1,0 +1,7 @@
+<% if @answer.next_id %>
+$("#answers").html("<%= j (render 'answers') %>");
+$("#evaluation").val("<%= @evaluation %>")
+<% else %>
+$("#answers").html("<%= j (render 'evaluator') %>");
+$("#evaluation").val("<%= @evaluation %>")
+<% end %>

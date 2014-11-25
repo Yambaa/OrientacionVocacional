@@ -1,0 +1,59 @@
+<%= form_for @answer, :html => { :class => "form-horizontal answer" } do |f| %>
+
+    <% if @answer.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@answer.errors.count, "error") %> prohibited this answer from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @answer.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <%= f.label :question_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.select :question_id, Question.order(:id).collect{|q| ["#{q.id} #{q.text} #{q.degree.name}", q.id]}, {include_blank: true},:class => 'form-control' %>
+    </div>
+    <%= error_span(@answer[:question_id]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :degree_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.select :degree_id, Degree.order(:name).collect{|d| [d.name, d.id]},{include_blank: true}, :class => 'form-control' %>
+    </div>
+    <%= error_span(@answer[:degree_id]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :text, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :text, :class => 'form-control' %>
+    </div>
+    <%= error_span(@answer[:text]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :score, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :score, :class => 'form-control' %>
+    </div>
+    <%= error_span(@answer[:score]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :next_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.select :next_id, Question.order(:id).collect{|q| ["#{q.id} #{q.text} #{q.degree.name}", q.id]}, {include_blank: true}, :class => 'form-control' %>
+    </div>
+    <%= error_span(@answer[:next_id]) %>
+  </div>
+
+
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            answers_path, :class => 'btn btn-default' %>
+
+<% end %>
