@@ -4,5 +4,5 @@ class Answer < ActiveRecord::Base
 
   belongs_to :question
   belongs_to :degree
-  has_one :next, class_name: :Question, foreign_key: :next_id
+  has_one :next, class_name: :Question, foreign_key: :id
 end

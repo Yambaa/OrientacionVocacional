@@ -9,7 +9,12 @@ class TestController < ApplicationController
     @evaluation = eval(params[:evaluation])
     @answer = Answer.find(params[:id])
     # @evaluation[@answer.degree.id] += @answer.score
-    @answers = @answer.next.answers if @answer.next_id
+    if @answer.next_id
+      @last = Question.find.first.answers.fisrt
+    else
+      @last = @answer
+      @answers = @answer.next.answers
+    end
     respond_to do |format|
       format.js
     end
